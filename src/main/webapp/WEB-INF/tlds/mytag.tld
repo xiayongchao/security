@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <!--TLD:Tag Library Descriptor/标签库描述符-->
+    <tlib-version>1.0</tlib-version><!--标签库的版本-->
+    <short-name>xyc</short-name><!--这个标签是指定我们定义标签的简称，这个作用不大-->
+    <uri>http://security.xyc.com/mytag</uri><!--这个标签是给这个标签文件指定一个访问路径，这个路径我们在Jsp页面中引入这个标签的时候需要用到-->
+
+    <!--权限控制-->
+    <tag>
+        <description><!--标签的描述-->
+            自定义权限标签
+        </description>
+        <name>security</name><!--标签的名称-->
+        <tag-class>com.xyc.security.tag.SecurityTag</tag-class><!--这个标签就是指定我们自定义的标签类的全称-->
+        <!--
+        tagdependent：标签体内容直接被写入BodyContent，由自定义标签类来进行处理，而不被JSP容器解释
+        jsp：接受所有JSP语法，如定制的或内部的tag、scripts、静态HTML、脚本元素、JSP指令和动作
+        empty：空标记，即起始标记和结束标记之间没有内容
+        scriptless：接受文本、EL和JSP动作
+        -->
+        <body-content>scriptless</body-content>
+        <attribute>
+            <description><!--属性的描述-->
+                权限模块值
+            </description>
+            <name>module</name><!--属性的名称-->
+            <required>true</required><!--表示这个属性是不是必须的-->
+            <rtexprvalue>true</rtexprvalue><!--全称是 Run-time Expression Value， 它用于表示是否能够利用JSP表达式-->
+        </attribute>
+        <attribute>
+            <description><!--属性的描述-->
+                权限值
+            </description>
+            <name>permission</name><!--属性的名称-->
+            <required>true</required><!--表示这个属性是不是必须的-->
+            <rtexprvalue>true</rtexprvalue><!--全称是 Run-time Expression Value， 它用于表示是否能够利用JSP表达式-->
+        </attribute>
+    </tag>
+</taglib>
